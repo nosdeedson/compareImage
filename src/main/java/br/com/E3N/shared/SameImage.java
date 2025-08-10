@@ -1,4 +1,4 @@
-package br.com.E3N.comparing;
+package br.com.E3N.shared;
 
 import java.util.HashMap;
 import java.util.Map;

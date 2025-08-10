@@ -1,8 +1,8 @@
-package br.com.E3N.factory;
+package br.com.E3N.usingThread.factory;
 
-import br.com.E3N.comparing.CompareImage;
-import br.com.E3N.comparing.CompareImageByByte;
-import br.com.E3N.comparing.CompareImageByPixel;
+import br.com.E3N.usingThread.comparing.CompareImage;
+import br.com.E3N.usingThread.comparing.CompareImageByByte;
+import br.com.E3N.usingThread.comparing.CompareImageByPixel;
 
 public final class CompareImageFactory {
 

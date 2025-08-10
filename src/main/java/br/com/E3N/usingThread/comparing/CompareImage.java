@@ -1,4 +1,4 @@
-package br.com.E3N.comparing;
+package br.com.E3N.usingThread.comparing;
 
 import java.io.File;
 import java.io.IOException;

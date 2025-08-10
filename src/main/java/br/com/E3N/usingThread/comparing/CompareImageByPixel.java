@@ -1,5 +1,6 @@
-package br.com.E3N.comparing;
+package br.com.E3N.usingThread.comparing;
 
+import br.com.E3N.shared.SameImage;
 import dev.brachtendorf.jimagehash.hash.Hash;
 import dev.brachtendorf.jimagehash.hashAlgorithms.HashingAlgorithm;
 import dev.brachtendorf.jimagehash.hashAlgorithms.PerceptiveHash;

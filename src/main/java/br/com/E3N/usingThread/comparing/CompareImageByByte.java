@@ -1,4 +1,6 @@
-package br.com.E3N.comparing;
+package br.com.E3N.usingThread.comparing;
+
+import br.com.E3N.shared.SameImage;
 
 import java.io.File;
 import java.io.IOException;
