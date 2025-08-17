@@ -1,20 +1,21 @@
 package br.com.E3N.shared;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public final class SameImage {
 
-    public static SameImage sameImage;
-    private final Map<String, String> same;
+    private static SameImage sameImage;
+
+
+    private final Set<Pair> same = new HashSet<>();
     private int comparisonDone = 0;
     private boolean finished = false;
 
     private SameImage() {
-        this.same = new HashMap<>();
     }
 
-    public static SameImage getInstance() {
+    public static synchronized SameImage getInstance() {
         if (sameImage == null) {
             sameImage = new SameImage();
         }
@@ -26,14 +27,14 @@ public final class SameImage {
     }
 
     public synchronized void add(final String key, final String value) {
-        this.same.put(key, value);
+        same.add(new Pair(key, value));
     }
 
     public boolean doNotHave(final String key) {
-        return !same.containsKey(key);
+        return false;
     }
 
-    public void hasFinished(){
+    public void hasFinished() {
         this.finished = true;
     }
 
@@ -48,13 +49,35 @@ public final class SameImage {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        for (Map.Entry<String, String> entry : same.entrySet()) {
-            builder.append(entry.getKey());
-            builder.append(" : ");
-            builder.append(entry.getValue());
-            builder.append("\n");
+        for (Pair entry : same) {
+            builder.append(entry.key)
+                    .append(" : ")
+                    .append(entry.value)
+                    .append("\n");
         }
-        builder.append(same.size());
+        builder.append("comparison: ")
+                .append(comparisonDone)
+                .append("\n");
         return builder.toString();
+    }
+
+    private record Pair(String key, String value) {
+        private Pair(String key, String value) {
+            if (key.compareTo(value) <= 0) {
+                this.key = key;
+                this.value = value;
+            } else {
+                this.key = value;
+                this.value = key;
+            }
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Pair(String key1, String value1))) return false;
+            return key.equals(key1) && value.equals(value1);
+        }
+
     }
 }

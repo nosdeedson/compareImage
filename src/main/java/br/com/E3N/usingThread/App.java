@@ -1,7 +1,7 @@
 package br.com.E3N.usingThread;
 
 import br.com.E3N.usingThread.comparing.CompareImage;
-import br.com.E3N.usingThread.comparing.GetFiles;
+import br.com.E3N.shared.GetFiles;
 import br.com.E3N.usingThread.comparing.MultipleExecutorThread;
 import br.com.E3N.shared.SameImage;
 import br.com.E3N.usingThread.factory.CompareImageFactory;

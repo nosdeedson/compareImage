@@ -23,7 +23,7 @@ public class CompareImageByByte implements CompareImage {
                     byte[] imageBytes2 = Files.readAllBytes(Path.of(file.getPath()));
                     boolean isEqual = Arrays.equals(imageBytes2, imageBytes);
                     if (isEqual) {
-                        if (sameImage.doNotHave(file.getName()))
+//                        if (sameImage.doNotHave(file.getName()))
                             sameImage.add(file1.getName(), file.getName());
                         sameImage.comparisonCount();
                     }
